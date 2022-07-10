@@ -31,15 +31,15 @@ function displayCurrentDate(){
 function saveToStorage() {
     localStorage.setItem("hourlyTask", JSON.stringify(tasks));
 }
-document.getElementById("container").addEventListener("click", function(event) {
-for (var i = 0; i < timeBlocks.length; i++) {
-if (timeBlocks[i].dataset.hour===event.target.parentNode.id) {
-    timeBlocks[i].innerHTML="It Works!!!";
-}
-}
 
-    console.log(event);
-   });
+$(".container").on("click", "button", function(event) {
+    $.each(timeBlocks, function(index, timeBlock){
+        if(timeBlock.dataset.hour === event.target.parentNode.id){
+            var taskText = $(timeBlock).val();
+            console.log(taskText);
+        }
+    })
+})
 
 //setup save button
 //getItem
