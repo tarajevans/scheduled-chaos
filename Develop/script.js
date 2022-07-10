@@ -1,20 +1,49 @@
-//create an array to collect time blocks
-var timeBlocks=[];
-timeBlocks=document.getElementsByClassName("time-block");
-console.log(timeBlocks);
-//populate the array with local storage
+//create variables
+var saveBtn=document.getElementById("saveBtn");
+var timeBlocks = [];
+var currentDate;
+var tasks = [
+    { hour: "09", task: "",},
+    { hour: "10", task: "",},
+    { hour: "11", task: "",},
+    { hour: "12", task: "",},
+    { hour: "13", task: "",},
+    { hour: "14", task: "",},
+    { hour: "15", task: "",},
+    { hour: "16", task: "",},
+    { hour: "17", task: "",}
+];
+var currentDate;
 
-// todays date displayed at the top
-    // gather today's date
-        // create a var for todays's date
-        // store it in the var 
-    //display the date
-    //get DOM element for displaying the date
+//displays date in header
+displayCurrentDate();
 
-//change colour for time events
+timeBlocks = document.getElementsByClassName("time-block");
+//console.log(timeBlocks[0].dataset.hour);
 
-//save button
+function displayCurrentDate(){
+    //fetch current date from api
+    currentDate = moment().format("dddd, MMMM Do YYYY");
+    //display current date
+    document.getElementById("currentDay").innerHTML = currentDate;
+}
 
-//save to local storage
+function saveToStorage() {
+    localStorage.setItem("hourlyTask", JSON.stringify(tasks));
+}
+document.getElementById("container").addEventListener("click", function(event) {
+for (var i = 0; i < timeBlocks.length; i++) {
+if (timeBlocks[i].dataset.hour===event.target.parentNode.id) {
+    timeBlocks[i].innerHTML="It Works!!!";
+}
+}
 
+    console.log(event);
+   });
+
+//setup save button
+//getItem
+//capture user input
+//create refresh timer
+//Colour change
 
