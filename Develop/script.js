@@ -26,10 +26,37 @@ $(".container").on("click", "button", function(event) {
         }
     })
 })
-
+function loadFromStorage(){
+    for(var i = 9; i <= 12; i++){
+        var hourName = "hour"+i;
+        var fromStorage = localStorage.getItem(hourName);
+        if(fromStorage != null){
+            $.each(timeBlocks, function(index, timeBlock){
+                if(timeBlock.dataset.hour === i.toString()){
+                    $(timeBlock).val(fromStorage);
+                    console.log(timeBlock.value=fromStorage);
+                }
+            })
+        }
+    }
+    for(var i = 1; i <= 15; i++){
+        var hourName = "hour"+i;
+        var fromStorage = localStorage.getItem(hourName);
+        if(fromStorage != null){
+            $.each(timeBlocks, function(index, timeBlock){
+                if(timeBlock.dataset.hour === i.toString()){
+                    $(timeBlock).val(fromStorage);
+                    console.log(timeBlock.value=fromStorage);
+                }
+            })
+        }
+    }
+}
+    
+loadFromStorage();
 //setup save button
 //getItem
 //capture user input
 //create refresh timer
 //Colour change
-
+//localStorage.clear();
