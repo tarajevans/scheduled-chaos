@@ -54,9 +54,33 @@ function loadFromStorage(){
 }
     
 loadFromStorage();
-//setup save button
-//getItem
-//capture user input
-//create refresh timer
+
+function timeCorrection(timeIn) {
+   if (timeIn > 12) {
+    return timeIn-12;
+   } 
+}
+
+timeBlocks[0];
+
 //Colour change
-//localStorage.clear();
+
+function getTime() {
+    var current = new Date();
+    return current.getHours();
+}
+
+function colorCode() {
+    for (var i = 0; i < timeBlocks.length; i++) {
+        if (timeBlocks[i].dataset.mil < getTime().toString()) {
+            timeBlocks[i].style = "background-color:grey";
+        }
+        if (timeBlocks[i].dataset.mil == getTime().toString()) {
+            timeBlocks[i].style = "background-color:red";
+        }
+        if (timeBlocks[i].dataset.mil > getTime().toString()) {
+            timeBlocks[i].style = "background-color:green";
+        }
+    }
+}
+
