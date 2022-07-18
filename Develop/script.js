@@ -72,15 +72,28 @@ function getTime() {
 
 function colorCode() {
     for (var i = 0; i < timeBlocks.length; i++) {
-        if (timeBlocks[i].dataset.mil < getTime().toString()) {
+        if (parseInt(timeBlocks[i].dataset.mil) < getTime()) {
             timeBlocks[i].style = "background-color:grey";
         }
-        if (timeBlocks[i].dataset.mil == getTime().toString()) {
+
+        if (parseInt(timeBlocks[i].dataset.mil) === getTime()) {
             timeBlocks[i].style = "background-color:red";
         }
-        if (timeBlocks[i].dataset.mil > getTime().toString()) {
+
+        if (parseInt(timeBlocks[i].dataset.mil) > getTime()) {
             timeBlocks[i].style = "background-color:green";
         }
     }
 }
 
+function update(){
+    var date=new Date();
+    if (date.getMinutes().toString()==="00") {
+        colorCode();
+    }
+}
+    $(document).ready(function(){
+    update();
+    setInterval(update,60000);
+})
+colorCode();
