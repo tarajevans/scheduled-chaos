@@ -2,7 +2,7 @@
 
 ## Work Day Scheduler - Module 5<br><br>
 
-A simple daily planner to organize our day.<br><br>
+A simple daily planner to organize our day. This app runs in the browser and features dynamically updated HTML and CSS powered by jQuery. The Moment.js library is used to work with time and date.<br><br>
 
 Github Repo: https://github.com/tarajevans/scheduled-chaos<br><br>
 
