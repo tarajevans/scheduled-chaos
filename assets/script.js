@@ -22,7 +22,7 @@ $(".container").on("click", "button", function(event) {
         if(timeBlock.dataset.hour === event.target.parentNode.id){
             var taskText = $(timeBlock).val();
             localStorage.setItem("hour"+timeBlock.dataset.hour, taskText);
-           console.log(localStorage.getItem("hour"+ timeBlock.dataset.hour));
+            console.log(localStorage.getItem("hour"+ timeBlock.dataset.hour));
         }
     })
 })
